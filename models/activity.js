@@ -1,5 +1,6 @@
-const Sequelize = require('sequelize');
-var db = require('./index');
+'use strict';
+
+var Sequelize = require('sequelize');
 
 var activity = {
   name: {
@@ -12,6 +13,4 @@ var activity = {
   }
 }
 
-var Activity = db.define('activity', activity);
-
-module.exports = Activity;
+module.exports = activity;

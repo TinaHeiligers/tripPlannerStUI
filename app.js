@@ -5,9 +5,15 @@ var morgan = require('morgan');
 var path = require('path');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
+
 var db = require('./models/db').db;
+//require all models through routers! Models can be accessed off the db.js file calling on the model name in the db object
+//eg: var hotel = require('./models/db').hotel
+//
 var indexRouter = require('./routers');
 var errorRouter = require('./routers/error');
+
+
 
 //MIDDLEWARE
 //logging server requests
@@ -42,7 +48,7 @@ app.use(function(err, req, res, next) {
       // res.render('error');//error page
 });
 
-//synching db and
+//synching db (should individual tables be synched?) and
 //starting server
 db.sync({force: true})
     .then(function() {

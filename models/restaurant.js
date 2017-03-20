@@ -1,5 +1,10 @@
-const Sequelize = require('sequelize');
-var db = require('./index');
+'use strict';
+
+var Sequelize = require('sequelize');
+
+// name
+// cuisine (comma delimited string list)
+// price (integer from 1-5 for how many dollar signs)
 
 var restaurant = {
 	name: {
@@ -13,10 +18,11 @@ var restaurant = {
 	price: {
 		type: Sequelize.INTEGER,
 		allowNull: false,
-		validate: {min: 1, max: 5}
+		validate: {
+			min: 1,
+			max: 5
+		}
 	}
-}
+};
 
-var Restaurant = db.define('restaurant', restaurant);
-
-module.exports = Restaurant;
+module.exports = restaurant;
