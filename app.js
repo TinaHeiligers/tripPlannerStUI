@@ -6,6 +6,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var db = require('./models/db').db;
+var indexRouter = require('./routers');
+var errorRouter = require('./routers/error');
+
 //MIDDLEWARE
 //logging server requests
 app.use(morgan('dev'));
@@ -22,18 +25,20 @@ nunjucks.configure('views', {noCache: true});
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
+app.use('/index', indexRouter);
+app.use('/error', errorRouter);
 
 //handling not found pages
-app.use(function(req, res, next) {
-      var err = new Error('Not Found');
-      err.status = 404;
-      next(err);
-});
+// app.use(function(req, res, next) {
+      // var err = new Error('Not Found');
+      // err.status = 404;
+      // next(err);
+// });
 
 //handling all errors
 app.use(function(err, req, res, next) {
       res.status(err.status || 500);
-      console.error(err);
+      console.error(err.stack);
       // res.render('error');//error page
 });
 

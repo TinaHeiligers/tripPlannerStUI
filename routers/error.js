@@ -7,7 +7,7 @@ module.exports = router;
 
 //rendering the index page in views
 router.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('error');
     next();
 });
 

@@ -1,7 +1,9 @@
 'use strict';
 
 var Sequelize = require("sequelize");
-var db = new Sequelize('postgres://localhost:5432/tripplannerstatic');
+var db = new Sequelize('postgres://localhost:5432/tripplannerstatic', {
+  logging: false
+});
 
 var Hotel = db.define('hotel',{
     name:  {
