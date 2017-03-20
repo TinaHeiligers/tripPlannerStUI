@@ -6,7 +6,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 
-var db = require('./models/db').db;
+var db = require('./models/index').db;
 //require all models through routers! Models can be accessed off the db.js file calling on the model name in the db object
 //eg: var hotel = require('./models/db').hotel
 //

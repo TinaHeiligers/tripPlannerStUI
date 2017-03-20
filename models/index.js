@@ -1,7 +1,7 @@
 'use strict';
 
 //importing the connection to the db
-var db = require('./db.js');
+var db = require('./db.js').db;
 //importing models
 var hotel = require('./hotel');
 var activity = require('./activity');
