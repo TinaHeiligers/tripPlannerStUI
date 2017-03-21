@@ -1,17 +1,12 @@
 'use strict';
 
 //importing the connection to the db
-var db = require('./db').db;
+var db = require('./db');
 //importing models
-var hotels = require('./hotel');
-var activities = require('./activity');
-var places = require('./place');
-var restaurants = require('./restaurant');
-
-var Hotel = db.define('hotels', hotels);
-var Activity = db.define('activities', activities);
-var Place = db.define('places', places);
-var Restaurant = db.define('restaurants', restaurants);
+var Hotel = require('./hotel');
+var Activity = require('./activity');
+var Place = require('./place');
+var Restaurant = require('./restaurant');
 
 //create associations:
 //belongsTo creates the following:
@@ -22,11 +17,5 @@ Activity.belongsTo(Place);
 
 //check case here, to seed we need lowercase but I'm not sure exactly where?
 //in the object definition perhaps? look at the instructions
-module.exports = {
-  db: db,
-  Hotel: Hotel,
-  Activity: Activity,
-  Place: Place,
-  Restaurant: Restaurant
-}
+module.exports = db: db;
 

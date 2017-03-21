@@ -1,16 +1,17 @@
 'use strict';
 
 var Sequelize = require('sequelize');
+var db = require('./db');
 
-var activity = {
+var Activity = db.define('activity', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    // allowNull: false
   },
   city: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    // allowNull: false
   }
 }
 
-module.exports = activity;
+module.exports = Activity;

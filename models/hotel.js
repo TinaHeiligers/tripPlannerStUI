@@ -1,12 +1,10 @@
 'use strict';
-//note that this might through an error that something's being defined in lowercase
+//note that this might throw an error that something's being defined in lowercase
+//Here we also need to import our db connection
 var Sequelize = require("sequelize");
+var db = require('./db');
 
-// name
-// num_stars (float from 1-5)
-// amenities (string of comma delimited items)
-
-var hotel = {
+var Hotel = db.define('hotels', {
     name:  {
       type: Sequelize.STRING,
       allowNull: false
@@ -26,6 +24,8 @@ var hotel = {
       type: Sequelize.STRING,
       allowNull: true
       }
-};
+}0;
 
-module.exports = hotel;
+
+
+module.exports = Hotel;
