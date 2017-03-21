@@ -17,5 +17,5 @@ Activity.belongsTo(Place);
 
 //check case here, to seed we need lowercase but I'm not sure exactly where?
 //in the object definition perhaps? look at the instructions
-module.exports = db: db;
+module.exports = db;
 

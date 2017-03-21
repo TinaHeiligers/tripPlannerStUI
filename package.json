@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "test",
-    "start": "nodemon -e html,css,js app.js"
+    "start": "nodemon -e html,css,js app.js",
+    "seed": "node seed.js",
+    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets"
   },
   "author": "Tina Heiligers",
   "license": "ISC",

@@ -1,26 +1,27 @@
 'use strict';
 var express = require('express');
-var app = express();
+
 var morgan = require('morgan');
 var path = require('path');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
-
-var db = require('./models/index').db;
+var db = require('./models');
+var router = require('./routers');
 //require all models through routers! Models can be accessed off the db.js file calling on the model name in the db object
 //eg: var hotel = require('./models/db').hotel
 //
-var indexRouter = require('./routers');
-var errorRouter = require('./routers/error');
-
-
+var app = express();
 
 //MIDDLEWARE
 //logging server requests
 app.use(morgan('dev'));
 
+
 //serving static files
 app.use(express.static(path.join(__dirname, '/public')));
+//jquery and bootstrap
+app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
 
 //parsing url and json
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,11 +29,13 @@ app.use(bodyParser.json());
 
 //templating
 nunjucks.configure('views', {noCache: true});
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
-app.use('/index', indexRouter);
-app.use('/error', errorRouter);
+
+//routes
+app.use(router);
 
 //handling not found pages
 // app.use(function(req, res, next) {
@@ -50,7 +53,7 @@ app.use(function(err, req, res, next) {
 
 //synching db (should individual tables be synched?) and
 //starting server
-db.sync({force: true})
+db.sync({force: false})
     .then(function() {
         console.log('db has been synched....');
     }).then(function() {
