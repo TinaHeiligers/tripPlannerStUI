@@ -1,9 +1,7 @@
-<!DOCTYPE html>
- <html>
- <head>
-   <title>ERROR IN VIEWS</title>
- </head>
- <body>
- <h1>OOPS!!!</h1>
- </body>
- </html>
+{% extends 'layout.html' %}
+
+{% block title %}OOPS ERROR!: {{error.status}} {% endblock %}
+
+{% block content %}
+    <h1>{{error.message}} : {{error.status}}</h1>
+{% endblock %}

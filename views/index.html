@@ -1,25 +1,46 @@
-<!-- {% extends "layout.html" %}
+{% extends "layout.html" %}
+
+{% block title %} The Trip! {% endblock %}
+
 
 {% block content %}
-<h3>Pages</h3>
-
-<hr>
-<ul class="list-unstyled">
- -->  <!-- PLACEHOLDER FOR PAGES -->
-<!--   {% for page in pages %}
-    <li>
-      <a href="{{ page.route }}">{{ page.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div id="app" class="clearfix">
+    <div class="map-container col-sm-8 col-lg-8 clearfix">
+        <div id="map-canvas"></div>
+    </div>
+    <div id="control-panel" class="col-sm-4 col-lg-4 clearfix">
+    <div class="panel panel-default">
+        <div class="panel-body" id="options-panel">
+            <div>
+                <h3>Hotels</h3>
+                <select data-type="hotel">
+                    {% for hotel in hotels %}
+                    <option>{{ hotel.name }}</option>
+                    {% endfor %}
+                </select>
+                <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            </div>
+            <div>
+                <h3>Food</h3>
+                <select data-type="restuarant">
+                    {% for restuarant in restuarants %}
+                    <option>{{ restuarant.name }}</option>
+                    {% endfor %}
+                </select>
+                <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            </div>
+            <div>
+                <h3>activities</h3>
+                <select data-type="activity">
+                    {% for activity in activities %}
+                    <option>{{ activity.name }}</option>
+                    {% endfor %}
+                </select>
+                <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 {% endblock %}
- -->
- <!DOCTYPE html>
- <html>
- <head>
-   <title>INDEX IN VIEWS</title>
- </head>
- <body>
- <h1>HOWDI!!!</h1>
- </body>
- </html>
+
