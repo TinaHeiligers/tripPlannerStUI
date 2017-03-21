@@ -3,15 +3,15 @@
 //importing the connection to the db
 var db = require('./db.js').db;
 //importing models
-var hotel = require('./hotel');
-var activity = require('./activity');
-var place = require('./place');
-var restaurant = require('./restaurant');
+var hotels = require('./hotel');
+var activities = require('./activity');
+var places = require('./place');
+var restaurants = require('./restaurant');
 
-var Hotel = db.define('hotel', hotel);
-var Activity = db.define('activity', activity);
-var Place = db.define('place', place);
-var Restaurant = db.define('restaurant', restaurant);
+var Hotel = db.define('hotels', hotels);
+var Activity = db.define('activities', activities);
+var Place = db.define('places', places);
+var Restaurant = db.define('restaurants', restaurants);
 
 //create associations:
 //belongsTo creates the following:
