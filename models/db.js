@@ -7,4 +7,4 @@ var db = new Sequelize('postgres://localhost:5432/tripplannerstatic', {
 
 module.exports = {
   db: db
-}
+};

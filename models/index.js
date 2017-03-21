@@ -1,7 +1,7 @@
 'use strict';
 
 //importing the connection to the db
-var db = require('./db.js').db;
+var db = require('./db').db;
 //importing models
 var hotels = require('./hotel');
 var activities = require('./activity');
@@ -24,9 +24,9 @@ Activity.belongsTo(Place);
 //in the object definition perhaps? look at the instructions
 module.exports = {
   db: db,
-  hotel: Hotel,
-  activity: Activity,
-  place: Place,
-  restaurant: Restaurant
+  Hotel: Hotel,
+  Activity: Activity,
+  Place: Place,
+  Restaurant: Restaurant
 }
 
